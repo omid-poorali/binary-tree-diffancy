@@ -6,7 +6,7 @@ export const Application = () => {
   return (
     <ErrorBoundary>
       <Layouts.Main>
-        <Pages.Main />
+        <Pages.Home />
       </Layouts.Main>
     </ErrorBoundary>
   );

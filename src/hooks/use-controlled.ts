@@ -1,8 +1,9 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useRef, useState, useCallback, useEffect } from "react";
 
 export interface UseControlledProps<T = unknown> {
-	controlled: T | undefined;
-	default: T | undefined;
+	controlled?: T;
+	default?: T;
 }
 
 /**
@@ -15,50 +16,41 @@ export const useControlled = <T = unknown>({
 	default: defaultValueProp,
 }: UseControlledProps<T>): [T, (newValue: T) => void] => {
 
+	const isControlled = controlled !== undefined;
 	const isDevMode = useRef(process.env.NODE_ENV !== "production");
+	const isControlledRef = useRef(isControlled);
+	const defaultValueRef = useRef(defaultValueProp);
 
-	const isControlled = useRef(controlled !== undefined);
-
-	const defaultValue = useRef(defaultValueProp);
-
-	const [state, setState] = useState(() => {
-		if (isControlled.current) {
-			return controlled as T;
-		}
-
-		return defaultValue.current as T;
-	});
+	const [state, setState] = useState(defaultValueProp);
 
 
 	useEffect(() => {
 		if (isDevMode.current) {
-			if (isControlled.current !== (controlled !== undefined)) {
-				console.error(`elements should not switch from uncontrolled to controlled (or vice versa).
-				  Decide between using a controlled or uncontrolled`);
+			if (isControlledRef.current !== (controlled !== undefined)) {
+				console.error("input should not switch from uncontrolled to controlled (or vice versa).");
 			}
 		}
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [isDevMode, isControlled, JSON.stringify(controlled)]);
+	}, [isDevMode, isControlledRef, JSON.stringify(controlled)]);
 
 
 	useEffect(() => {
 		if (isDevMode) {
-			if (!isControlled.current) {
-				if (defaultValue.current !== defaultValueProp) {
-					console.error(`changing the default state of an uncontrolled after being initialized. 
-					To suppress this warning opt to use a controlled`);
+			if (!isControlledRef.current) {
+				if (defaultValueRef.current !== defaultValueProp) {
+					console.error("changing the default state of an uncontrolled after being initialized.");
 				}
 			}
 		}
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [isDevMode, isControlled, JSON.stringify(defaultValueProp)]);
+	}, [isDevMode, isControlledRef, JSON.stringify(defaultValueProp)]);
 
+
+	const value = (isControlled ? controlled : state) as T;
 
 	const setValueIfUncontrolled = useCallback((newValue: T) => {
-		if (!isControlled.current) {
+		if (!isControlled) {
 			setState(() => newValue);
 		}
 	}, []);
 
-	return [state, setValueIfUncontrolled];
+	return [value, setValueIfUncontrolled];
 };
