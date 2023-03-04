@@ -1,87 +1,87 @@
 .DuiTreeVisualizer {
-    width: 100%;
-    height: auto;
+  height: auto;
+  text-align: center;
+  width: 100%;
+
+  ul {
+    padding-top: 20px;
+    position: relative;
+    transition: 0.5s;
+
+    ul::before {
+      border-left: 1px solid #ccc;
+      content: '';
+      height: 20px;
+      left: 50%;
+      position: absolute;
+      top: 0;
+      width: 0;
+    }
+  }
+
+  li {
+    display: inline-table;
+    list-style-type: none;
+    padding: 10px;
+    position: relative;
     text-align: center;
+    transition: 0.5s;
 
-    ul {
-        padding-top: 20px;
-        position: relative;
-        transition: .5s;
-
-        ul::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            border-left: 1px solid #ccc;
-            width: 0;
-            height: 20px;
-        }
+    &::before,
+    &::after {
+      border-top: 1px solid #ccc;
+      content: '';
+      height: 10px;
+      position: absolute;
+      right: 50%;
+      top: 0;
+      width: 51%;
     }
 
-    li {
-        display: inline-table;
-        text-align: center;
-        list-style-type: none;
-        position: relative;
-        padding: 10px;
-        transition: .5s;
-
-        &::before,
-        &::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 50%;
-            border-top: 1px solid #ccc;
-            width: 51%;
-            height: 10px;
-        }
-
-        &::after {
-            right: auto;
-            left: 50%;
-            border-left: 1px solid #ccc;
-        }
-
-        &:only-child::after,
-        &:only-child::before {
-            display: none;
-        }
-
-        &:only-child {
-            padding-top: 0;
-        }
-
-        &:first-child::before,
-        &:last-child::after {
-            border: 0 none;
-        }
-
-        &:last-child::before {
-            border-right: 1px solid #ccc;
-            border-radius: 0 5px 0 0;
-            -webkit-border-radius: 0 5px 0 0;
-            -moz-border-radius: 0 5px 0 0;
-        }
-
-        &:first-child::after {
-            border-radius: 5px 0 0 0;
-            -webkit-border-radius: 5px 0 0 0;
-            -moz-border-radius: 5px 0 0 0;
-        }
-
-        span {
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            color: #666;
-            padding: 8px;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 500;
-        }
-
+    &::after {
+      border-left: 1px solid #ccc;
+      left: 50%;
+      right: auto;
     }
+
+    &:only-child::after,
+    &:only-child::before {
+      display: none;
+    }
+
+    &:only-child {
+      padding-top: 0;
+    }
+
+    &:first-child::before,
+    &:last-child::after {
+      border: 0 none;
+    }
+
+    &:last-child::before {
+      border-radius: 0 5px 0 0;
+      border-radius: 0 5px 0 0;
+      border-radius: 0 5px 0 0;
+      border-right: 1px solid #ccc;
+    }
+
+    &:first-child::after {
+      border-radius: 5px 0 0;
+      border-radius: 5px 0 0;
+      border-radius: 5px 0 0;
+    }
+
+    span {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      color: #666;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      padding: 8px;
+      text-transform: uppercase;
+    }
+
+  }
 
 }

@@ -3,13 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.5.2",
-    "@types/node": "^16.18.14",
-    "@types/react": "^18.0.28",
-    "@types/react-dom": "^18.0.11",
     "clsx": "^1.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -18,23 +11,50 @@
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.18.14",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.54.0",
     "@typescript-eslint/parser": "^5.54.0",
+    "cypress": "^12.7.0",
     "eslint": "^8.35.0",
-    "eslint-plugin-tailwindcss": "^3.10.1",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
+    "husky": "^8.0.3",
+    "prettier": "^2.8.4",
     "sass": "^1.58.3",
+    "stylelint": "^15.2.0",
+    "stylelint-config-sass-guidelines": "^9.0.1",
     "tailwindcss": "^3.2.7"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "lint": "eslint ./src",
-    "eject": "react-scripts eject"
+    "lint": "npm run lint:code && npm run lint:style",
+    "lint:fix": "npm run lint:code:fix && npm run lint:style:fix",
+    "lint:code": "eslint src/**/*.{js,ts,tsx} --quiet",
+    "lint:code:fix": "eslint src/**/*.{js,ts,tsx} --fix",
+    "lint:style": "stylelint src/**/*.scss",
+    "lint:style:fix": "stylelint src/**/*.scss --fix",
+    "test:jest": "jest --config=jest.config.js",
+    "test:jest:watch": "jest --config=jest.config.js --watch",
+    "test:jest:coverage": "jest --config=jest.config.js --coverage",
+    "test:cypress": "cypress run",
+    "test:cypress:open": "cypress open",
+    "prepare": "husky install"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/omid-poorali/binary-tree-diffancy.git"
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": [
+      "eslint --fix"
     ]
   },
   "browserslist": {
