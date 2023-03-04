@@ -7,9 +7,9 @@ type PropsType = {
 }
 
 export const Main = (props: PropsType) => (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex min-h-screen flex-col">
         <Header />
-        <main className="flex-grow">
+        <main className="grow">
             {props.children}
         </main>
         <Footer />

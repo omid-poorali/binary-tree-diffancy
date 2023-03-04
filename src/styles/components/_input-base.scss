@@ -1,0 +1,46 @@
+.DuiInputBase {
+    padding: 0.75rem;
+    background: none;
+    border-style: none;
+    outline: none;
+
+    &--fullWidth {
+        width: 100%;
+    }
+
+    &:-internal-autofill-selected {
+        border-radius: 0.25rem;
+        background-color: transparent;
+    }
+
+    &--primary-outlined {
+        
+        color: var(--neutral-500);
+        outline: 1px solid var(--neutral-200);
+        border-radius: 0.25rem;
+
+        &::placeholder {
+            color: var(--neutral-300);
+        }
+
+        &:hover {
+            outline-color: var(--neutral-400);
+        }
+
+        &[focus="true"],
+        &:focus {
+            outline-color: var(--primary-700);
+        }
+    }
+
+    &--disabled {
+        color: var(--neutral-300);
+        outline-color: var(--neutral-300);
+
+        &[focus="true"],
+        &:hover,
+        &:focus {
+            outline-color: var(--neutral-300);
+        }
+    }
+}

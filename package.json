@@ -18,12 +18,17 @@
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
+    "@typescript-eslint/parser": "^5.54.0",
+    "eslint": "^8.35.0",
+    "eslint-plugin-tailwindcss": "^3.10.1",
+    "sass": "^1.58.3",
     "tailwindcss": "^3.2.7"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "lint": "eslint ./src",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
