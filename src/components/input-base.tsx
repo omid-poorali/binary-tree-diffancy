@@ -1,3 +1,4 @@
+/* eslint-disable tailwindcss/no-custom-classname */
 import React from 'react';
 import clsx from 'clsx';
 import { useControlled } from 'hooks';

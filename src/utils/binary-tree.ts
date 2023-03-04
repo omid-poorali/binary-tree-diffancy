@@ -9,7 +9,11 @@ type NodeType = {
     hasAvailableSpace: () => boolean;
 }
 
-
+/**
+ * Create Node object that includes data as value and left, right as pointer for its children.
+ * @param data - The value that node.
+ * @returns Simple node object.
+ */
 function createNode(data: NodeType["data"] = null): NodeType {
 
     const hasAvailableSpace = (node: NodeType) => !(node.left && node.right);
@@ -68,6 +72,11 @@ function createNode(data: NodeType["data"] = null): NodeType {
 
 }
 
+/**
+ * Create a binary tree node and manage insertion.
+ * @param data - The value of the root node.
+ * @returns Simple node object and methods for creating new node and get data for showing tree component.
+ */
 export function binaryTree(data: NodeType["data"]) {
 
     const allNodes = new Set<NodeType>();
