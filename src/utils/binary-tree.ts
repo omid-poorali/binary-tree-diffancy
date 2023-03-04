@@ -62,7 +62,7 @@ function createNode(data: NodeType['data'] = null): NodeType {
  * @param data - The value of the root node.
  * @returns Simple node object and methods for creating new node and get data for showing tree component.
  */
-export function binaryTree(data: NodeType['data']) {
+export function binaryTree(data: NodeType['data'] = null) {
   const allNodes = new Set<NodeType>();
   const root = createNode(data);
   allNodes.add(root);

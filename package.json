@@ -14,7 +14,8 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.5.2",
+    "ts-jest": "^29.0.5",
+    "@types/jest": "^29.4.0",
     "@types/node": "^16.18.14",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
@@ -44,12 +45,11 @@
     "lint:code:fix": "eslint src/**/*.{js,ts,tsx} --fix",
     "lint:style": "stylelint src/**/*.scss",
     "lint:style:fix": "stylelint src/**/*.scss --fix",
-    "test:jest": "jest --config=jest.config.js",
-    "test:jest:watch": "jest --config=jest.config.js --watch",
-    "test:jest:coverage": "jest --config=jest.config.js --coverage",
+    "test:jest": "jest",
+    "test:jest:watch": "jest --watch",
+    "test:jest:coverage": "jest --coverage",
     "test:cypress": "cypress run --config-file ./cypress/config.ts",
     "test:cypress:open": "cypress open --config-file ./cypress/config.ts",
-    
     "prepare": "husky install"
   },
   "repository": {
