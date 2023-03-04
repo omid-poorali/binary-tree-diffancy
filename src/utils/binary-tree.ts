@@ -6,10 +6,13 @@ type NodeType = {
     right: NodeType | null;
     toGraph: () => Models.GraphNode;
     insert: (input: string) => NodeType | null;
+    hasAvailableSpace: () => boolean;
 }
 
 
 function createNode(data: NodeType["data"] = null): NodeType {
+
+    const hasAvailableSpace = (node: NodeType) => !(node.left && node.right);
 
     const insert = (node: NodeType, input: string): NodeType | null => {
 
@@ -19,23 +22,23 @@ function createNode(data: NodeType["data"] = null): NodeType {
 
                 node.left = createNode(input);
                 return node.left;
-            
+
             }
             else if (!node.right) {
 
                 node.right = createNode(input);
                 return node.right;
-            
+
             }
             return null;
-        
+
         } else {
 
             node.data = input;
             return node;
-        
+
         }
-    
+
     }
 
     const toGraph = (node: NodeType) => {
@@ -49,7 +52,7 @@ function createNode(data: NodeType["data"] = null): NodeType {
             label,
             children
         }
-    
+
     }
 
     const newNode: NodeType = {
@@ -57,7 +60,8 @@ function createNode(data: NodeType["data"] = null): NodeType {
         left: null,
         right: null,
         toGraph: () => toGraph(newNode),
-        insert: (input: string) => insert(newNode, input)
+        insert: (input: string) => insert(newNode, input),
+        hasAvailableSpace: () => hasAvailableSpace(newNode)
     }
 
     return newNode;
@@ -76,24 +80,24 @@ export function binaryTree(data: NodeType["data"]) {
         if (newNode) {
 
             allNodes.add(newNode);
-        
+
         }
         else {
 
             for (const node of Array.from(allNodes)) {
 
-                if (!(node.left && node.right)) {
+                if (node.hasAvailableSpace()) {
 
                     newNode = node.insert(input);
                     if (newNode) allNodes.add(newNode);
                     break;
-                
+
                 }
-            
+
             }
-        
+
         }
-    
+
     }
 
     return {
