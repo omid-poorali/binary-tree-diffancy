@@ -1,6 +1,6 @@
 import React from 'react';
-import clsx from 'clsx';
 import { useControlled } from 'hooks';
+import clsx from 'clsx';
 
 type CustomProps = {
   fullWidth?: boolean;
