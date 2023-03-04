@@ -20,6 +20,7 @@ module.exports = {
     'plugin:prettier/recommended',
   ],
   rules: {
+    '@typescript-eslint/triple-slash-reference': 'off',
     'react/react-in-jsx-scope': 'off',
     'prettier/indent': 'off',
     indent: ['error', 2],
