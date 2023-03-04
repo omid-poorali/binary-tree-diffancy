@@ -119,6 +119,7 @@ Binary Trees are trees whose nodes can only have up to two children (Hence the n
 | <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Cypress.png" width='30'> | Cypress | 12.7.0 | <https://www.cypress.io/>
 | <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Sass_Logo_Color.svg/1200px-Sass_Logo_Color.svg.png" width='30'> | Sass | 1.58.3 | <https://sass-lang.com/>| 
 | <img src="https://cdn.worldvectorlogo.com/logos/eslint.svg" width='30'> | ESLint | 8.35.0 | <https://eslint.org/>
+| <img src="https://prettier.io/icon.png" width='30'> | Prettier | 2.8.4 | https://prettier.io/
 | <img src="https://media.istockphoto.com/vectors/cute-brown-siberian-husky-dog-sitting-cartoon-icon-vector-vector-id1238710824?k=20&m=1238710824&s=170667a&w=0&h=m4N_3us1MDDnMa-mWIGxyrYvgd9FRq0A67ziTCy7ZZw=" width='30'> | Husky | 8.0.3 | <https://github.com/typicode/husky>
 
   
